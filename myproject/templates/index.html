@@ -41,6 +41,9 @@
             <a class="navbar-brand" href="/">underthesea live demo</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Word Segmentation</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="https://github.com/magizbox/underthesea">Github</a></li>
             </ul>
@@ -49,20 +52,23 @@
 </nav>
 <div class="container" style="margin-top: 60px;">
     <div class="form-group">
-        <label for="comment">Text</label>
-        <textarea class="form-control" rows="5"
-          id="comment">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại</textarea>
+        <label for="text">Text</label>
+        <textarea class="form-control" row="5"
+                  id="text">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại</textarea>
     </div>
-    <div class="btn btn-default">Word Segmentation</div>
+    <p class="text-center">
+        <span class="btn btn-success" id="word_segmentation">Word Segmentation</span>
+    </p>
+    <b>Output</b><br/>
+    <div id="output">
+        <div class="visualize_word_sent" id="word_sent"></div>
+    </div>
 </div>
-
-<div class="container" style="margin-top: 20px;">
-    <div id="word_sent"></div>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 
 <script src="./static/js/data/data.js"></script>
 <script src="./static/js/data/word_sent.js"></script>
-
 <script src="./static/js/client/lib/jquery.min.js"></script>
 <script src="./static/js/client/lib/jquery.svg.min.js"></script>
 <script src="./static/js/client/lib/jquery.svgdom.min.js"></script>
@@ -74,5 +80,6 @@
 <script src="./static/js/client/src/visualizer.js"></script>
 <script src="./static/js/client/src/util.js"></script>
 <script src="./static/js/brat.js"></script>
+<script src="./static/js/ui.js"></script>
 </body>
 </html>

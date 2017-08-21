@@ -843,6 +843,7 @@ var Visualizer = (function($, window, undefined) {
         var currentChunkId = 0;
         var chunk;
         $.each(sortedFragments, function(fragmentId, fragment) {
+          console.log(fragmentId);
           while (fragment.to > (chunk = data.chunks[currentChunkId]).to) currentChunkId++;
           chunk.fragments.push(fragment);
           fragment.text = chunk.text.substring(fragment.from - chunk.from, fragment.to - chunk.from);
