@@ -21,5 +21,6 @@ from myproject import settings, views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^word_sent', views.word_sent),
     url(r'^admin/', admin.site.urls),
 ]

@@ -1,5 +1,8 @@
+click==6.7
 dj-database-url==0.4.1
 Django==1.11.1
-gunicorn==19.6.0
-psycopg2==2.6.2
+gunicorn==19.7.1
+python-crfsuite==0.9.1
+pytz==2017.2
+underthesea==1.1.1
 whitenoise==3.2
