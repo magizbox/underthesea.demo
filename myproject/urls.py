@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from myproject import settings
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', 'django.contrib.staticfiles.views.serve', kwargs={
+        'path': 'index.html', 'document_root': settings.STATIC_ROOT}),
 ]
