@@ -7,32 +7,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>underthesea</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style-vis.css">
+    <link rel="stylesheet" type="text/css" href="static/css/ner.css">
+    <link rel="stylesheet" type="text/css" href="static/css/sa.css">
+    <style type="text/css">
+        @font-face {
+            font-family: "PT Sans Caption";
+            src: url("./static/fonts/PT_Sans-Caption-Web-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: "Liberation Sans";
+            src: url("./static/fonts/Liberation_Sans-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: "Astloch Bold";
+            src: url("./static/fonts/Astloch-Bold.ttf");
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">underthesea live demo</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">underthesea live demo</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="https://github.com/magizbox/underthesea">Github</a></li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="https://github.com/magizbox/underthesea">Github</a></li>
+            </ul>
         </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    </div>
+</nav>
 <div class="container" style="margin-top: 60px;">
     <div class="form-group">
-      <label for="comment">Text</label>
-      <textarea class="form-control" rows="5" id="comment"></textarea>
+        <label for="comment">Text</label>
+        <textarea class="form-control" rows="5"
+          id="comment">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại</textarea>
     </div>
     <div class="btn btn-default">Word Segmentation</div>
 </div>
+
+<div class="container" style="margin-top: 20px;">
+    <div id="word_sent"></div>
+</div>
+
+<script src="./static/js/data/data.js"></script>
+<script src="./static/js/data/word_sent.js"></script>
+
+<script src="./static/js/client/lib/jquery.min.js"></script>
+<script src="./static/js/client/lib/jquery.svg.min.js"></script>
+<script src="./static/js/client/lib/jquery.svgdom.min.js"></script>
+<script src="./static/js/client/src/configuration.js"></script>
+<script src="./static/js/client/src/annotation_log.js"></script>
+<script src="./static/js/client/lib/webfont.js"></script>
+<script src="./static/js/client/src/dispatcher.js"></script>
+<script src="./static/js/client/src/url_monitor.js"></script>
+<script src="./static/js/client/src/visualizer.js"></script>
+<script src="./static/js/client/src/util.js"></script>
+<script src="./static/js/brat.js"></script>
 </body>
 </html>
