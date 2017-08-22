@@ -7,7 +7,6 @@ import json
 
 
 def index(request):
-    # return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
 

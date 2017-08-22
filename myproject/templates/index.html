@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/ner.css">
     <link rel="stylesheet" type="text/css" href="static/css/sa.css">
     <link rel="stylesheet" type="text/css" href="static/css/ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,7 +34,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Word Segmentation</a></li>
-                <li><a href="pos_tag.html">POS Tag</a></li>
+                <li><a href="#!/pos_tag">POS Tag</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -49,27 +48,13 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 60px;">
-    <h2 id="navs">Word Segmentation</h2>
-    <div ng-include src="'/static/components/header.html'"></div>
-    <hr/>
-    <p><b>Text</b></p>
-    <div class="form-group">
-        <textarea class="form-control" row="5"
-                  id="text">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại</textarea>
-    </div>
-    <p class="text-center">
-        <span class="btn btn-success" id="word_segmentation">Word Segmentation</span>
-    </p>
-    <b>Output</b><br/>
-    <div id="output">
-        <div class="visualize_word_sent" id="word_sent"></div>
-    </div>
+    <div ng-view></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 
-<script src="./static/js/data/data.js"></script>
-<script src="./static/js/data/word_sent.js"></script>
 <script src="./static/js/client/lib/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 <script src="./static/js/client/lib/jquery.svg.min.js"></script>
@@ -81,7 +66,10 @@
 <script src="./static/js/client/src/url_monitor.js"></script>
 <script src="./static/js/client/src/visualizer.js"></script>
 <script src="./static/js/client/src/util.js"></script>
-<script src="./static/js/brat.js"></script>
+
+<script src="./static/app/app.js"></script>
+<script src="./static/app/word_sent/controller.js"></script>
+<script src="./static/app/route.js"></script>
 <script src="./static/js/ui.js"></script>
 </body>
 </html>
