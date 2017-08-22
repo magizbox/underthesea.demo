@@ -1,1 +1,1 @@
-var app = angular.module("myApp", ['ui.router']);
+window.app = angular.module("myApp", ['ui.router']);

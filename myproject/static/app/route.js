@@ -10,6 +10,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state({
             url: '/pos_tag',
             name: 'pos_tag',
+            controller: 'POSTagCtrl',
             templateUrl: "./static/app/pos_tag/pos_tag.html"
         });
 });
