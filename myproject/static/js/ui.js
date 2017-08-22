@@ -8,7 +8,6 @@ function generateOutput(text){
         try {
             window.start = 0;
             var tags = data["output"];
-            console.log(tags.join(" "));
             input = {
                 "config": {},
                 "doc": {}
@@ -41,3 +40,15 @@ $("#word_segmentation").click(function () {
     generateOutput(text);
 });
 
+function flashLabel(){
+    var time = 400;
+    for(var i=0; i<1; i++){
+        $("#live-label").animate({"color": "#fff"}, time);
+        $("#live-label").animate({"color": "#c0dbab"}, time);
+    }
+    $("#live-label").animate({"color": "#fff"}, time);
+}
+
+$(document).ready(function(){
+    flashLabel();
+});

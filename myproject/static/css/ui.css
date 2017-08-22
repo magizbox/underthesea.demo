@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Astloch Bold";
+    src: url("./static/fonts/Astloch-Bold.ttf");
+}
+
+.navbar-default .navbar-brand {
+    color: #111 !important;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #d9230f !important;
+    background-color: transparent;
+}
+.form-control {
+    color: #444;
+}
