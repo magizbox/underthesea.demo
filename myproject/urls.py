@@ -22,5 +22,6 @@ from myproject import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^word_sent', views.word_sent),
+    url(r'^pos_tag', views.pos_tag),
     url(r'^admin/', admin.site.urls),
 ]

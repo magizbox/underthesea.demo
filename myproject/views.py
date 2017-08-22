@@ -20,3 +20,14 @@ def word_sent(request):
     except:
         result = {"error": "Bad request!"}
     return JsonResponse(result)
+
+@csrf_exempt
+def pos_tag(request):
+    result = {}
+    try:
+        text = json.loads(request.body.decode("utf-8"))["text"]
+        tags = uts.pos_tag(text)
+        result["output"] = tags
+    except:
+        result = {"error": "Bad request!"}
+    return JsonResponse(result)
