@@ -32,7 +32,7 @@ app.controller("WordSentCtrl", function ($scope) {
         });
     };
 
-    generateOutput("Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại");
+    generateOutput("Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.");
     $scope.do = function () {
         var text = $("#text").val();
         generateOutput(text);

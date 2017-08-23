@@ -44,7 +44,6 @@ function generateEntitiesFromIOBTags(tags) {
         .reduce(mergeIOBTags)
         .map(removeIOBPrefix)
         .value();
-    console.log(tags);
     var entities = generateEntitiesFromTags(tags);
     entities = _.filter(entities, function (entity) {
         return entity[1] != "O";

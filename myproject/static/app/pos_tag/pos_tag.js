@@ -32,7 +32,7 @@ app.controller("POSTagCtrl", function ($scope) {
 
     };
 
-    Util.embed('pos_tag', POSExample["config"], POSExample["doc"], []);
+    generateOutput("Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.");
     $scope.do = function () {
         var text = $("#text").val();
         generateOutput(text);
