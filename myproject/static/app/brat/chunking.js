@@ -1,18 +1,23 @@
+window.ChunkingBratConfig = {
+    entity_types: [],
+    relation_types: []
+};
+
 var tags = [
     {
-        "subtags": ['N', 'Np', 'Nc', 'Nb', 'Nu', 'Ny'],
+        "subtags": ['NP'],
         "color": "#b4bbff"
     },
     {
-        "subtags": ['P'],
+        "subtags": ['PP'],
         "color": "#6ec1e2"
     },
     {
-        "subtags": ['V'],
+        "subtags": ['VP'],
         "color": "#adf6a2"
     },
     {
-        "subtags": ['A', 'Ab'],
+        "subtags": ['AP'],
         "color": "#f98fff"
     },
     {
@@ -29,12 +34,6 @@ var tags = [
     }
 ];
 
-window.POSTagBratConfig = {
-    entity_types: [
-    ],
-    "relation_types": []
-};
-
 _.each(tags, function(tagCategory){
     var color = tagCategory["color"];
     _.each(tagCategory["subtags"], function(tag){
@@ -44,6 +43,7 @@ _.each(tags, function(tagCategory){
             bgColor: color,
             borderColor: 'darken'
         };
-        window.POSTagBratConfig["entity_types"].push(entity);
+        window.ChunkingBratConfig["entity_types"].push(entity);
     });
 });
+

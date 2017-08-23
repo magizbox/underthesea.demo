@@ -12,5 +12,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             name: 'pos_tag',
             controller: 'POSTagCtrl',
             templateUrl: "./static/app/pos_tag/pos_tag.html"
+        })
+        .state({
+            url: '/chunking',
+            name: 'chunking',
+            controller: 'ChunkingCtrl',
+            templateUrl: "./static/app/chunking/chunking.html"
         });
 });

@@ -31,3 +31,14 @@ def pos_tag(request):
     except:
         result = {"error": "Bad request!"}
     return JsonResponse(result)
+
+@csrf_exempt
+def chunking(request):
+    result = {}
+    try:
+        text = json.loads(request.body.decode("utf-8"))["text"]
+        tags = uts.chunk(text)
+        result["output"] = tags
+    except:
+        result = {"error": "Bad request!"}
+    return JsonResponse(result)
