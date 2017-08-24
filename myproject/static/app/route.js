@@ -18,5 +18,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             name: 'chunking',
             controller: 'ChunkingCtrl',
             templateUrl: "./static/app/chunking/chunking.html"
+        })
+        .state({
+            url: '/dictionary',
+            name: 'dictionary',
+            controller: 'DictionaryCtrl',
+            templateUrl: "./static/app/dictionary/dictionary.html"
         });
 });
