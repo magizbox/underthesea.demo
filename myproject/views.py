@@ -41,7 +41,6 @@ def chunking(request):
         result["output"] = tags
     except:
         result = {"error": "Bad request!"}
-    result = json.dumps(result, ensure_ascii=False)
     return JsonResponse(result)
 
 @csrf_exempt

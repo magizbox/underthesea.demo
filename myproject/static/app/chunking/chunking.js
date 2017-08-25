@@ -7,6 +7,7 @@ app.controller("ChunkingCtrl", function ($scope) {
             contentType: 'application/json'
         }).done(function (data) {
             try {
+                console.log(data);
                 var tags = data["output"];
                 var tokens = _.map(tags, function (tag) {
                     return tag[0]
