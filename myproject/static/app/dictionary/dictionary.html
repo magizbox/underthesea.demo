@@ -1,5 +1,5 @@
 <h2>Vietnamese Dictionary</h2>
-<p>more than 13000 words and phrases</p>
+<p>more than 33000 words and phrases</p>
 <hr/>
 <div class="form-group">
   <div class="input-group">
@@ -17,8 +17,10 @@
   </div>
 </div>
 
-<div class="panel panel-default" ng-if="found">
+<div class="panel panel-default" ng-click="showExample = !showExample" ng-init="showExample = false" ng-if="found" ng-repeat="sense in word">
   <div class="panel-body">
-    <b>{{ word.pos }}</b>. {{word.text }}
+    <b>{{ sense.pos }} ({{ getPOSDescription(sense.pos) }})</b>. {{
+    sense.definition }}<br/>
+    <i ng-show="showExample">Ví dụ: {{ sense.example}}</i>
   </div>
 </div>

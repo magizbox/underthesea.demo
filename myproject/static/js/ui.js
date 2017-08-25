@@ -9,4 +9,5 @@ function flashLabel(){
 
 $(document).ready(function(){
     flashLabel();
+    $('[data-toggle="tooltip"]').tooltip();
 });

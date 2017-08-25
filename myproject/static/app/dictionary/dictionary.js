@@ -21,6 +21,25 @@ app.controller("DictionaryCtrl", function ($scope) {
         }).fail(function () {
         });
     };
+
+    $scope.getPOSDescription = function(pos){
+        var POS = {
+            "N": "danh từ",
+            "A": "tính từ",
+            "V": "động từ",
+            "P": "đại từ",
+            "E": "giới từ",
+            "I": "thán từ",
+            "L": "định từ",
+            "M": "số từ",
+            "T": "trợ từ",
+            "Z": "yếu tố cấu tạo từ",
+            "R": "phó từ",
+            "X": "từ không phân loại được",
+            "C": "liên từ"
+        };
+        return POS[pos];
+    };
     $scope.init = function(){
         $scope.notFound = false;
         $scope.found = false;
