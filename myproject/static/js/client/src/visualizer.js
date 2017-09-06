@@ -382,7 +382,7 @@ var Visualizer = (function($, window, undefined) {
 
       // due to silly Chrome bug, I have to make it pay attention
       var forceRedraw = function() {
-        if (!$.browser.chrome) return; // not needed
+        // if (!$.browser.chrome) return; // not needed
         $svg.css('margin-bottom', 1);
         setTimeout(function() { $svg.css('margin-bottom', 0); }, 0);
       }
