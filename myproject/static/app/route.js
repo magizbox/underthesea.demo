@@ -24,5 +24,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             name: 'dictionary',
             controller: 'DictionaryCtrl',
             templateUrl: "./static/app/dictionary/dictionary.html"
+        })
+        .state({
+            url: '/classification',
+            name: 'classification',
+            controller: 'ClassificationCtrl',
+            templateUrl: "./static/app/classification/classification.html"
         });
 });

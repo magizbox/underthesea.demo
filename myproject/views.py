@@ -44,6 +44,17 @@ def chunking(request):
     return JsonResponse(result)
 
 @csrf_exempt
+def classification(request):
+    result = {}
+    try:
+        text = json.loads(request.body.decode("utf-8"))["text"]
+        tags = uts.classify(text)
+        result["output"] = tags
+    except:
+        result = {"error": "Bad request!"}
+    return JsonResponse(result)
+
+@csrf_exempt
 def dictionary(request):
     result = {}
     uts_dict = Dictionary.Instance()
