@@ -1,3 +1,3 @@
 git add -A
-git commit -m "fork rebuild"
+git commit -m "automatic deployment"
 git push origin demo
