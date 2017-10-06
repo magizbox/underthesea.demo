@@ -1,3 +1,3 @@
 git add -A
 git commit -m "automatic deployment"
-git push origin demo_rc
+git push origin demo.beta
