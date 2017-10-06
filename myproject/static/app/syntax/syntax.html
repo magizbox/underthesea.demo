@@ -1,0 +1,25 @@
+<h2>Syntactic Analysis</h2>
+<p>analysis of words in the sentence for grammar and arranging words in a manner</p>
+<hr/>
+<p><b>Text</b></p>
+<div class="form-group">
+  <textarea class="form-control" row="5" id="text">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.</textarea>
+</div>
+<p class="text-center">
+  <span class="btn btn-success" id="word_segmentation" ng-click="do()">Analyze</span>
+</p>
+<b>Word Segmentation</b><br/>
+<div id="word_sent_wrapper">
+  <div class="visualize_word_sent" id="word_sent"></div>
+</div>
+<br/>
+<b>POS Tag</b><br/>
+<div id="pos_tag_wrapper">
+  <div id="pos_tag"></div>
+</div>
+<br/>
+<b>Chunking</b><br/>
+<div id="chunking_wrapper">
+  <div id="chunking"></div>
+</div>
+

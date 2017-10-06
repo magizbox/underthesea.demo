@@ -1,8 +1,8 @@
-app.controller("POSTagCtrl", function ($scope) {
+app.controller("NERTagCtrl", function ($scope) {
     var generateOutput = function(text){
         $.ajax({
             type: "POST",
-            url: "../pos_tag",
+            url: "../ner",
             data: JSON.stringify({"text": text}),
             contentType: 'application/json'
         }).done(function (data) {
@@ -12,18 +12,21 @@ app.controller("POSTagCtrl", function ($scope) {
                 var tokens = _.map(tags, function(tag){ return tag[0] });
                 var text = tokens.join(" ");
 
-                var entities = generateEntitiesFromTags(tags);
-                var pos = {
-                    "config": POSTagBratConfig,
+                 var nerTags = _.map(tags, function (tag) {
+                    return [tag[0], tag[3]];
+                });
+                var nerEntities = generateEntitiesFromIOBTags(nerTags);
+                var ner = {
+                    "config": NERTagBratConfig,
                     "doc": {
                        "text": text,
-                       "entities": entities
+                       "entities": nerEntities
                     }
                 };
 
-                $("#output #pos_tag").remove();
-                $("#output").append("<div id='pos_tag'></div>");
-                Util.embed("pos_tag", pos["config"], pos["doc"], []);
+                $("#ner_wrapper #ner").remove();
+                $("#ner_wrapper").append("<div id='ner'></div>");
+                Util.embed("ner", ner["config"], ner["doc"], []);
             } catch (e) {
                 console.log(e);
             }
