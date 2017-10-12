@@ -21,7 +21,6 @@ requests==2.14.2
 scikit-learn==0.19.0
 scipy==0.19.1
 six==1.10.0
-underthesea==1.1.4rc2
 whitenoise==3.2
 xlrd==1.1.0
 xlwt==1.3.0
