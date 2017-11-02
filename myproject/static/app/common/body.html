@@ -1,0 +1,23 @@
+<div ng-include src="'./static/app/common/nav.html'"></div>
+
+<div class="container" style="margin-top: 60px;">
+  <div ng-class="{
+    'col-sm-8': config['showFB'],
+    'col-sm-12': !config['showFB']
+  }">
+    <ui-view></ui-view>
+  </div>
+  <div class="col-sm-4" ng-show="config['showFB']">
+    <div id="fb-root"></div>
+    <div class="fb-page" data-href="https://www.facebook.com/undertheseanlp/"
+         data-tabs="timeline" data-height="700" data-small-header="false"
+         data-adapt-container-width="true" data-hide-cover="false"
+         data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/undertheseanlp/"
+                  class="fb-xfbml-parse-ignore"><a
+          href="https://www.facebook.com/undertheseanlp/">Underthesea</a>
+      </blockquote>
+    </div>
+  </div>
+</div>
+</div>

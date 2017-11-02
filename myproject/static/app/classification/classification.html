@@ -1,17 +1,32 @@
-<h2>Classification</h2>
 <p>Vietnamese Text Classification using fasttext</p>
 <hr/>
-
+<p>
+  <b>Domain:</b>
+  <span class="btn-group btn-group-xs" role="group"
+        aria-label="Small button group">
+    <button type="button"
+            ng-repeat="domain in domains"
+            class="btn"
+            ng-class="{
+              'btn-primary': domain == currentDomain
+            }"
+            ng-click="select(domain)">
+      {{ domain }}
+    </button>
+  </span>
+</p>
 <p><b>Text</b></p>
 <div class="form-group">
-  <textarea class="form-control" rows="8" id="text">Việt Nam hạ Indonesia 3-0, rộng cửa vào bán kết U18 Đông Nam Á. Cả Việt Nam lẫn Indonesia đang có hai chiến thắng, và chia nhau hai vị trí dẫn đầu bảng B. Vì thế, cuộc đối đầu giữa hai đội được xem như trận quyết định đến ngôi đầu bảng.
-
-Đội quân của HLV Hoàng Anh Tuấn, qua hai lượt trận, đạt hiệu suất ghi bàn đáng nể với 12 lần chọc thủng lưới đối phương, từ các chiến thắng 8-1 trước Brunei và 5-0 trước Philippines. Indonesia cũng không phải dạng vừa khi thắng Philippines 9-1 và quật ngã chủ nhà Mynamar 2-1.</textarea>
+  <textarea class="form-control" rows="8" id="text" ng-model="text"></textarea>
 </div>
 <p class="text-center">
   <span class="btn btn-success" ng-click="do()">Classify</span>
 </p>
 <b>Output</b><br/>
 <div id="output">
-  <span class="label label-info">{{ tag }}</span>
+  <span class="label label-info"
+        style="margin-right: 2px"
+        ng-repeat="tag in tags">
+    {{ tag }}
+  </span>
 </div>

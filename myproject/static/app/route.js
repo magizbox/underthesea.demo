@@ -14,6 +14,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "./static/app/named_entity_recognition/ner.html"
         })
         .state({
+            url: '/act',
+            name: 'act',
+            controller: 'DialogActCtrl',
+            templateUrl: "./static/app/dialog_act/dom.html"
+        })
+        .state({
             url: '/dictionary',
             name: 'dictionary',
             controller: 'DictionaryCtrl',

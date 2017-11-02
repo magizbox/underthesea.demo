@@ -1,15 +1,18 @@
 app.controller("ClassificationCtrl", function ($scope) {
-    var generateOutput = function(text){
+    var generateOutput = function(text, domain){
         $scope.tag = "";
         $.ajax({
             type: "POST",
             url: "../classification",
-            data: JSON.stringify({"text": text}),
+            data: JSON.stringify({
+                "text": text,
+                "domain": domain
+            }),
             contentType: 'application/json'
         }).done(function (data) {
             try {
                 console.log(data);
-                $scope.tag = data["output"][0];
+                $scope.tags = data["output"];
                 $scope.$apply();
             } catch (e) {
                 console.log(e);
@@ -17,29 +20,21 @@ app.controller("ClassificationCtrl", function ($scope) {
         }).fail(function () {
         });
     };
-
-    $scope.getTagDescription = function(pos){
-        var POS = {
-            "N": "danh từ",
-            "A": "tính từ",
-            "V": "động từ",
-            "P": "đại từ",
-            "E": "giới từ",
-            "I": "thán từ",
-            "L": "định từ",
-            "M": "số từ",
-            "T": "trợ từ",
-            "Z": "yếu tố cấu tạo từ",
-            "R": "phó từ",
-            "X": "từ không phân loại được",
-            "C": "liên từ"
-        };
-        return POS[pos];
+    $scope.domains = ["GENERAL", "BANK"];
+    $scope.currentDomain = "GENERAL";
+    $scope.defaultText = {
+        "GENERAL": "Việt Nam hạ Indonesia 3-0, rộng cửa vào bán kết U18 Đông Nam Á. Cả Việt Nam lẫn Indonesia đang có hai chiến thắng, và chia nhau hai vị trí dẫn đầu bảng B. Vì thế, cuộc đối đầu giữa hai đội được xem như trận quyết định đến ngôi đầu bảng.",
+        "BANK": "tôi chuyển tiền sang viettinbank không thành công mà vẫn mất phí 7.7K nè. "
+    };
+    $scope.text = "Việt Nam hạ Indonesia 3-0, rộng cửa vào bán kết U18 Đông Nam Á. Cả Việt Nam lẫn Indonesia đang có hai chiến thắng, và chia nhau hai vị trí dẫn đầu bảng B. Vì thế, cuộc đối đầu giữa hai đội được xem như trận quyết định đến ngôi đầu bảng.";
+    $scope.select = function(domain){
+        $scope.currentDomain = domain;
+        $scope.text = $scope.defaultText[domain];
+        $scope.tags = [];
     };
     $scope.do = function () {
-        var text = $("#text").val();
-        generateOutput(text);
-    }
+        generateOutput($scope.text, $scope.currentDomain);
+    };
 
     $scope.init = function(){
         $scope.tag = "";

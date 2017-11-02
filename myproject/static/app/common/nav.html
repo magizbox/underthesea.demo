@@ -8,20 +8,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">underthesea<sup>
-                <span id="live-label" class="label label-info">
-                    <span id="live-icon">•</span> demo</span>
-      </sup></a>
+      <a class="navbar-brand" href="/">{{ config["name"] }}
+        <sup>
+          <span id="live-label" class="label label-info">
+          <span id="live-icon">•</span> service</span>
+        </sup>
+      </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="syntax">Syntax</a></li>
         <li ui-sref-active="active"><a ui-sref="ner">Named Entity Recognition</a></li>
+        <li ui-sref-active="active"><a ui-sref="act">Dialogue Act</a></li>
         <li ui-sref-active="active"><a ui-sref="classification">Text Classification</a></li>
         <li ui-sref-active="active"><a ui-sref="dictionary">Dictionary</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li ng-show="config['showGithub']">
           <a target="_blank" href="https://github.com/magizbox/underthesea">
             <i class="fa fa-github" aria-hidden="true"></i>
             Github

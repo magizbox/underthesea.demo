@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from underthesea.dictionary import Dictionary
+from underthesea.classification import bank
 import json
 
 
@@ -58,11 +59,26 @@ def ner(request):
 def classification(request):
     result = {}
     try:
-        text = json.loads(request.body.decode("utf-8"))["text"]
-        tags = uts.classify(text)
+        params = json.loads(request.body.decode("utf-8"))
+        if params["domain"] == "GENERAL":
+            clf = uts.classify
+        if params["domain"] == "BANK":
+            clf = uts.classification.bank.classify
+        tags = clf(params["text"])
         result["output"] = tags
     except:
         result = {"error": "Bad request!"}
+    return JsonResponse(result)
+
+@csrf_exempt
+def act(request):
+    result = {}
+    try:
+        text = json.loads(request.body.decode("utf-8"))["text"]
+        tags = uts.identify_dialog_act(text)
+        result["output"] = tags
+    except:
+        result = {"output": ["Thanks"]}
     return JsonResponse(result)
 
 @csrf_exempt
