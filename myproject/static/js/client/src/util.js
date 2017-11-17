@@ -552,8 +552,10 @@ var Util = (function(window, undefined) {
       var dispatcher = new Dispatcher();
       var visualizer = new Visualizer(dispatcher, container, webFontURLs);
       docData.collection = null;
+
       dispatcher.post('collectionLoaded', [collData]);
       dispatcher.post('requestRenderData', [docData]);
+
       return dispatcher;
     };
 

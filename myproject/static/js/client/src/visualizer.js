@@ -87,7 +87,7 @@ var Visualizer = (function($, window, undefined) {
       for (var fi = 0, nfi = 0; fi < this.unsegmentedOffsets.length; fi++) {
         var begin = this.unsegmentedOffsets[fi][0];
         var end = this.unsegmentedOffsets[fi][1];
-      
+
         for (var ti = begin; ti < end; ti++) {
           var c = text.charAt(ti);
           if (c == '\n' || c == '\r') {
@@ -101,7 +101,7 @@ var Visualizer = (function($, window, undefined) {
             begin = ti;
           }
         }
-      
+
         if (begin !== null) {
           this.offsets.push([begin, end]);
           this.segmentedOffsetsMap[nfi++] = fi;
@@ -3274,7 +3274,6 @@ Util.profileStart('before render');
       };
 
       Util.loadFonts(webFontURLs, dispatcher);
-
       dispatcher.
           on('collectionChanged', collectionChanged).
           on('collectionLoaded', collectionLoaded).

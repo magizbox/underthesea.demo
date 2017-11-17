@@ -1,4 +1,4 @@
-window.app = angular.module("myApp", ['ui.router']);
+window.app = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
 
 app.directive('myEnter', function () {
     return function (scope, element, attrs) {
