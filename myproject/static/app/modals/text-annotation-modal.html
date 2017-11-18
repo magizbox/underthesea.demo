@@ -18,22 +18,21 @@
                 Entity type
             </div>
             <div class="content-text">
-                <div class="radio radio-primary">
-                    <input type="radio" name="radio1" id="radio1" value="option1" checked="">
-                    <label for="radio1">
-                        Small
-                    </label>
-                </div>
-                <div class="radio radio-primary">
-                    <input type="radio" name="radio1" id="radio2" value="option2">
-                    <label for="radio2">
-                        Big
-                    </label>
+                <div class="row">
+                    <div class="col-lg-3" ng-repeat="entity in listAnnotation">
+                        <div class="radio radio-primary">
+                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)">
+                            <label for="{{ entity.type }}">
+                                {{ entity.type }}
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="cancel()">OK</button>
+        <button type="button" class="btn btn-primary" ng-click="ok()">OK</button>
     </div>
 </div>

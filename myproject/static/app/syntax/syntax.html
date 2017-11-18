@@ -9,17 +9,12 @@
   <span class="btn btn-success" id="word_segmentation" ng-click="do()">Analyze</span>
 </p>
 <b>Word Segmentation</b><br/>
-
-<text-annotation config="configWordSent" doc="docWordSent" type="word_sent"></text-annotation>
+<text-annotation config="wordSent.config" doc="wordSent.doc"></text-annotation>
 <br/>
 <b>POS Tag</b><br/>
-<div id="pos_tag_wrapper" type="pos_tag" new-annotation="" callback="modalAnnotation(element, position)">
-  <div id="pos_tag"></div>
-</div>
+<text-annotation config="pos_tag.config" doc="pos_tag.doc"></text-annotation>
 <br/>
 <b>Chunking</b><br/>
-<div id="chunking_wrapper" type="chunking_wrapper" new-annotation="" callback="modalAnnotation(element, position)">
-  <div id="chunking"></div>
-</div>
+<text-annotation config="chunking.config" doc="chunking.doc"></text-annotation>
 <br/><br/>
 

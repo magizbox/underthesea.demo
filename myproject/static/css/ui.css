@@ -138,3 +138,14 @@
     background-color: #428bca;
     outline: none !important;
 }
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-dialog{
+    overflow-y: hidden !important
+}
+.modal-body{
+    max-height: 400px;
+    overflow-y: auto;
+}
