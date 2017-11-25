@@ -16,15 +16,6 @@
     color: #444;
 }
 
-.top-modal {
-    /*top: 100px;*/
-}
-
-@media (min-width: 768px) {
-    .modal-dialog {
-        margin: 0px !important;
-    }
-}
 
 .modal-body {
     padding: 20px 10px;
@@ -138,14 +129,17 @@
     background-color: #428bca;
     outline: none !important;
 }
-.modal-open {
-    overflow: hidden;
+
+text tspan{
+    cursor: pointer;
 }
 
-.modal-dialog{
-    overflow-y: hidden !important
-}
-.modal-body{
-    max-height: 400px;
-    overflow-y: auto;
+.label-annotation{
+    border: 1px solid;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #111;
+    text-align: center;
+    padding: 0 5px;
+    margin-left: 10px;
 }

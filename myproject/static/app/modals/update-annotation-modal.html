@@ -1,0 +1,39 @@
+<div class="my-modal">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Edit Annotation</h4>
+    </div>
+    <div class="modal-body">
+        <div class="wrap-text wrap-info-modal">
+            <div class="title-text">
+                Text
+            </div>
+            <div class="content-text">
+                {{ selected.text }}
+            </div>
+        </div>
+
+        <div class="wrap-entity wrap-info-modal">
+            <div class="title-text">
+                Entity type
+            </div>
+            <div class="content-text">
+                <div class="row">
+                    <div class="col-lg-3" ng-repeat="entity in listAnnotation">
+                        <div class="radio radio-primary">
+                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)" ng-checked="entity.type == selected.entity">
+                            <label for="{{ entity.type }}">
+                                {{ entity.type }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" ng-click="delete()">Delete</button>
+        <button type="button" class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+</div>

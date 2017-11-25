@@ -9,7 +9,7 @@
                 Text
             </div>
             <div class="content-text">
-                Nhật ký
+                {{ selected.text }}
             </div>
         </div>
 
@@ -21,8 +21,8 @@
                 <div class="row">
                     <div class="col-lg-3" ng-repeat="entity in listAnnotation">
                         <div class="radio radio-primary">
-                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)">
-                            <label for="{{ entity.type }}">
+                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)" ng-checked="entity.type == existAnnotation[1]">
+                            <label for="{{ entity.type }}" ng-style="{'border-color': entity.border, 'background-color': entity.bgColor}" class="label-annotation">
                                 {{ entity.type }}
                             </label>
                         </div>
