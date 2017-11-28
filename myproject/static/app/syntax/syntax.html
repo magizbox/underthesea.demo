@@ -10,11 +10,11 @@
     <span class="btn btn-success" id="word_segmentation" ng-click="do()">Analyze</span>
 </p>
 <b>Word Segmentation</b><br/>
-<text-annotation config="wordSent.config" doc="wordSent.doc" editable="false" multilable="false"></text-annotation>
+<text-annotation config="wordSent.config" doc="wordSent.doc" editable="true" multilabel="true" confirm="true"></text-annotation>
 <br/>
 <b>POS Tag</b><br/>
-<text-annotation config="pos_tag.config" doc="pos_tag.doc" editable="false" multilable="false"></text-annotation>
+<text-annotation config="pos_tag.config" doc="pos_tag.doc" editable="true" multilabel="false" confirm="false"></text-annotation>
 <br/>
 <b>Chunking</b><br/>
-<text-annotation config="chunking.config" doc="chunking.doc" editable="true" multilable="false"></text-annotation>
+<text-annotation config="chunking.config" doc="chunking.doc" editable="true" multilabel="false" confirm="true"></text-annotation>
 <br/><br/>

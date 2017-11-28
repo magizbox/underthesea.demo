@@ -10,6 +10,7 @@ app.controller("WordSentCtrl", function ($scope, $uibModal, $rootScope) {
       try {
         $scope.$apply(function () {
           var tags = data["output"];
+
           var tokens = _.map(tags, function (tag) {
             return tag[0]
           });

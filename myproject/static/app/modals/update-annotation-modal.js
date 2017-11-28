@@ -12,10 +12,14 @@ app.controller('UpdateAnnotationModalCtrl', function ($scope, $uibModalInstance,
       var arr = $scope.itemTextSelected[2];
       var arr2 = arr[0];
       $scope.selected["text"] = data.doc.text.substring(arr2[0], arr2[1]);
-      $scope.selected["entity"] =$scope.itemTextSelected[1];
+      $scope.selected["entity"] = $scope.itemTextSelected[1];
     }
 
-    $scope.listAnnotation = data.config.entity_types;
+    $scope.listAnnotation = _.map(data.config.entity_types, function (item) {
+      var borderColor = Util.adjustColorLightness(item.bgColor, -0.6);
+      item["border"] = borderColor;
+      return item;
+    });
   }
 
   $scope.selectEntity = function (item) {
@@ -23,16 +27,25 @@ app.controller('UpdateAnnotationModalCtrl', function ($scope, $uibModalInstance,
   };
 
   $scope.delete = function () {
-    var result = confirm("Do you want to delete this annotation!");
-    if (result == true) {
+    var confirmDelete = data.confirm;
+    if (confirmDelete == "true") {
+      var result = confirm("Do you want to delete this annotation!");
+      if (result == true) {
+        $uibModalInstance.close({
+          entity: $scope.entitySelected,
+          annotation: $scope.itemTextSelected,
+          action: 'delete'
+        });
+      }
+    }
+    else if(confirmDelete == "false") {
       $uibModalInstance.close({
         entity: $scope.entitySelected,
         annotation: $scope.itemTextSelected,
         action: 'delete'
       });
-    } else {
-
     }
+
   };
 
   $scope.ok = function () {

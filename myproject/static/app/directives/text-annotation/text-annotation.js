@@ -10,7 +10,8 @@ function textAnnotation() {
       config: '=',
       doc: '=',
       editable: '@',
-      multilable: '@'
+      multilabel: '@',
+      confirm: '@'
     },
     controller: function ($scope, $element, $uibModal) {
       $scope.openModal = {};
@@ -32,7 +33,8 @@ function textAnnotation() {
               return {
                 "rectId": rectId,
                 "config": $scope.config,
-                "doc": $scope.doc
+                "doc": $scope.doc,
+                "confirm": $scope.confirm
               };
             }
           }
@@ -118,15 +120,15 @@ function textAnnotation() {
 
       $scope.$watch('doc', function (newValue, oldValue) {
         if (newValue) {
-          var mode = $scope.editable;
-          var multilable = $scope.multilable;
+          var editable = $scope.editable;
+          var multilabel = $scope.multilabel;
           var config = $scope.config;
           var doc = $scope.doc;
           $($element).find("#" + id).remove();
           $($element).append("<div id='" + id + "'></div>");
           $($element).find("#" + id).bind("DOMSubtreeModified", function () {
 
-            if (mode == "true") {
+            if (editable == "true") {
               // click annotation
               $($element).find("#" + id).find("g.span").click(function (e) {
                 if (!$scope.openModal["update"]) {
@@ -136,22 +138,10 @@ function textAnnotation() {
                 }
               });
 
+
               // mouse up subtext
               $($element).find("#" + id).find("g.text").on('mouseup', function () {
                 if (!$scope.openModal["new"]) {
-
-
-
-
-
-
-
-
-
-
-
-
-
                   if (window.getSelection) {
                     var sel = window.getSelection();
                     var div = $(this);
@@ -168,15 +158,23 @@ function textAnnotation() {
                       var e = r.replace(/\s+$/g, ' ');
                       var startIndex = e.length;
                       var endIndex = e.length + textSelected.length;
+
+                      var listExistEntity = _.filter($scope.doc.entities, function (item) {
+                        var indexItem = item[2];
+                        var indexItemChild = indexItem[0];
+                        return indexItemChild[0] == startIndex && indexItemChild[1] == endIndex;
+                      });
+
                       if (textSelected.trim().length > 0) {
-                        $scope.newAnnotationModal(textSelected, startIndex, endIndex);
+                        if (multilabel == "true" || (multilabel == "false" && listExistEntity.length <= 0)) {
+                          $scope.newAnnotationModal(textSelected, startIndex, endIndex);
+                        }
                       }
                     }
                   }
                 }
               });
             }
-
           });
 
           Util.embed(id, config, doc, []);

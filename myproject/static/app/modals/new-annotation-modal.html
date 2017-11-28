@@ -19,9 +19,9 @@
             </div>
             <div class="content-text">
                 <div class="row">
-                    <div class="col-lg-3" ng-repeat="entity in listAnnotation">
+                    <div class="col-sm-3" ng-repeat="entity in listAnnotation">
                         <div class="radio radio-primary">
-                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)" ng-checked="entity.type == existAnnotation[1]">
+                            <input type="radio" id="{{ entity.type }}" name="radio-entity" ng-click="selectEntity(entity)" ng-checked="checkExistEntity(entity)">
                             <label for="{{ entity.type }}" ng-style="{'border-color': entity.border, 'background-color': entity.bgColor}" class="label-annotation">
                                 {{ entity.type }}
                             </label>
@@ -33,6 +33,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="ok()">OK</button>
+        <button type="button" class="btn btn-primary" ng-click="ok()">
+            <i class="fa fa-check-square-o" aria-hidden="true"></i> OK</button>
     </div>
 </div>
