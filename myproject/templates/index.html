@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="static/css/style-vis.css">
-  <link rel="stylesheet" type="text/css" href="static/css/ner.css">
-  <link rel="stylesheet" type="text/css" href="static/css/sa.css">
+  <link rel="stylesheet" type="text/css" href="static/app/directives/text-annotation/text-annotation.css">
   <link rel="stylesheet" type="text/css" href="static/css/ui.css">
 </head>
 <body>
@@ -64,7 +62,6 @@
     src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-{#<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>#}
 
 <script src="./static/app/brat/word_sent.js"></script>
 <script src="./static/app/brat/pos_tag.js"></script>
@@ -81,8 +78,9 @@
 <script src="./static/app/dictionary/dictionary.js"></script>
 <script src="./static/app/route.js"></script>
 <script src="./static/js/ui.js"></script>
-<script src="./static/app/directives/text-annotation/text-annotation.js"></script>
-<script src="./static/app/modals/update-annotation-modal.js"></script>
-<script src="./static/app/modals/new-annotation-modal.js"></script>
+
+<script component="text-annotation-script" src="./static/app/directives/text-annotation/text-annotation.js"></script>
+<script src="./static/app/directives/text-annotation/update-annotation-modal.js"></script>
+<script src="./static/app/directives/text-annotation/new-annotation-modal.js"></script>
 </body>
 </html>

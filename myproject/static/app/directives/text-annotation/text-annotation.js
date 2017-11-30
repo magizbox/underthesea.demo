@@ -15,17 +15,20 @@ function textAnnotation() {
     },
     controller: function ($scope, $element, $uibModal) {
       $scope.openModal = {};
-
       var id = null;
       if (!id) {
         id = Math.random().toString(36).substring(7);
       }
 
+      var path = $("script[component='text-annotation-script']").attr("src");
+      var index = path.indexOf("text-annotation.js");
+      var subPath = path.substring(0, index);
+
       $scope.updateAnnotationModal = function (rectId) {
         $scope.openModal["update"] = true;
         var modalInstance = $uibModal.open({
           animation: true,
-          templateUrl: './static/app/modals/update-annotation-modal.html',
+          templateUrl: subPath + 'update-annotation-modal.html',
           controller: 'UpdateAnnotationModalCtrl',
           size: 'lg',
           resolve: {
@@ -55,7 +58,6 @@ function textAnnotation() {
                 entity[1] = entitySelected;
               }
             }
-
           }
           else if (action == 'delete') {
             var annotation = data.annotation;
@@ -63,8 +65,6 @@ function textAnnotation() {
               return item[0] != annotation[0];
             });
           }
-
-
         }, function () {
           $scope.openModal["update"] = false;
         });
@@ -74,7 +74,7 @@ function textAnnotation() {
         $scope.openModal["new"] = true;
         var modalInstance = $uibModal.open({
           animation: true,
-          templateUrl: './static/app/modals/new-annotation-modal.html',
+          templateUrl: subPath + 'new-annotation-modal.html',
           controller: 'NewAnnotationModalCtrl',
           size: 'lg',
           resolve: {
@@ -110,8 +110,6 @@ function textAnnotation() {
 
             $scope.doc.entities.push(newAnnotation);
           }
-
-
           $scope.openModal["new"] = false;
         }, function () {
           $scope.openModal["new"] = false;
@@ -129,7 +127,7 @@ function textAnnotation() {
           $($element).find("#" + id).bind("DOMSubtreeModified", function () {
 
             if (editable == "true") {
-              // click annotation
+              // open update annotation modal
               $($element).find("#" + id).find("g.span").click(function (e) {
                 if (!$scope.openModal["update"]) {
 
@@ -138,8 +136,7 @@ function textAnnotation() {
                 }
               });
 
-
-              // mouse up subtext
+              // open new annotation modal
               $($element).find("#" + id).find("g.text").on('mouseup', function () {
                 if (!$scope.openModal["new"]) {
                   if (window.getSelection) {
