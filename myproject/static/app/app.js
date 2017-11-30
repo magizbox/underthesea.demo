@@ -1,4 +1,4 @@
-window.app = angular.module("myApp", ['ui.router']);
+window.app = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
 
 app.directive('myEnter', function () {
     return function (scope, element, attrs) {
@@ -7,7 +7,6 @@ app.directive('myEnter', function () {
                 scope.$apply(function (){
                     scope.$eval(attrs.myEnter);
                 });
-
                 event.preventDefault();
             }
         });
