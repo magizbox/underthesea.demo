@@ -44,6 +44,17 @@ def chunking(request):
     return JsonResponse(result)
 
 @csrf_exempt
+def ner(request):
+    result = {}
+    try:
+        text = json.loads(request.body.decode("utf-8"))["text"]
+        tags = uts.ner(text)
+        result["output"] = tags
+    except:
+        result = {"error": "Bad request!"}
+    return JsonResponse(result)
+
+@csrf_exempt
 def classification(request):
     result = {}
     try:

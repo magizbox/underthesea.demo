@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content" onmouseup="getSelectedWordIndex()">
+    <span>hello</span>
+    <span>hello</span>
+    <span>hello</span>
+    <span>hello</span>
+</div>
+
+<script>
+    function getSelectedWordIndex() {
+        if (window.getSelection) {
+            var sel = window.getSelection();
+            var div = document.getElementById("content");
+
+            if (sel.rangeCount) {
+                // Get the selected range
+                var range = sel.getRangeAt(0);
+
+                // Check that the selection is wholly contained within the div text
+                var textSelected = sel.toString();
+                var precedingRange = document.createRange();
+                precedingRange.setStartBefore(div.firstChild);
+                precedingRange.setEnd(range.startContainer, range.startOffset);
+                var textPrecedingSelection = precedingRange.toString();
+                var a = textPrecedingSelection.replace(/\n/g, ' ');
+                var r = a.replace(/^\s+/g, '');
+                var e = r.replace(/\s+$/g, ' ');
+                var wordIndex = e.length;
+                var indexText = e.length + textSelected.length;
+                alert("start: " + wordIndex + ", end: " + indexText);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
