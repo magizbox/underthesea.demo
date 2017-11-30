@@ -3,23 +3,18 @@
 <hr/>
 <p><b>Text</b></p>
 <div class="form-group">
-  <textarea class="form-control" row="5" id="text">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.</textarea>
+    <textarea class="form-control" row="5"
+              id="text">Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.</textarea>
 </div>
 <p class="text-center">
-  <span class="btn btn-success" id="word_segmentation" ng-click="do()">Analyze</span>
+    <span class="btn btn-success" id="word_segmentation" ng-click="do()">Analyze</span>
 </p>
 <b>Word Segmentation</b><br/>
-<div id="word_sent_wrapper">
-  <div class="visualize_word_sent" id="word_sent"></div>
-</div>
+<text-annotation config="wordSent.config" doc="wordSent.doc" editable="true" multilabel="true" confirm="true"></text-annotation>
 <br/>
 <b>POS Tag</b><br/>
-<div id="pos_tag_wrapper">
-  <div id="pos_tag"></div>
-</div>
+<text-annotation config="pos_tag.config" doc="pos_tag.doc" editable="true" multilabel="false" confirm="false"></text-annotation>
 <br/>
 <b>Chunking</b><br/>
-<div id="chunking_wrapper">
-  <div id="chunking"></div>
-</div>
+<text-annotation config="chunking.config" doc="chunking.doc" editable="true" multilabel="false" confirm="true"></text-annotation>
 <br/><br/>
