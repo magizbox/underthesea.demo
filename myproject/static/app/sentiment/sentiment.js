@@ -26,7 +26,7 @@ app.controller("SentimentCtrl", function ($scope) {
     $scope.do = function () {
         var text = $scope.text;
         generateOutput(text);
-    }
+    };
 
     $scope.samples = [
         'Vay dc của bank không dễ đâu các chế ah.',
