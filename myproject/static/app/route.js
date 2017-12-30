@@ -24,5 +24,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             name: 'classification',
             controller: 'ClassificationCtrl',
             templateUrl: "./static/app/classification/classification.html"
+        })
+        .state({
+            url: '/sentiment',
+            name: 'sentiment',
+            controller: 'SentimentCtrl',
+            templateUrl: "./static/app/sentiment/sentiment.html"
         });
 });

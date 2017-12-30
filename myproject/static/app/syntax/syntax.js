@@ -54,7 +54,7 @@ app.controller("WordSentCtrl", function ($scope) {
                 $("#pos_tag_wrapper #pos_tag").remove();
                 $("#pos_tag_wrapper").append("<div id='pos_tag'></div>");
                 Util.embed("pos_tag", pos["config"], pos["doc"], []);
-                 $("#chunking_wrapper #chunking").remove();
+                $("#chunking_wrapper #chunking").remove();
                 $("#chunking_wrapper").append("<div id='chunking'></div>");
                 Util.embed("chunking", chunking["config"], chunking["doc"], []);
             } catch (e) {
@@ -64,9 +64,19 @@ app.controller("WordSentCtrl", function ($scope) {
         });
     };
 
+    $scope.samples = [
+        'Phát hiện hai vật thể khả nghi tại nơi tàu ngầm Argentina mất tích',
+        'Thống kê ngạc nhiên về Messi ở trận Siêu kinh điển',
+        'Bảo Thanh từng “nước mắt như mưa” ôm con 4 tháng tuổi về đón Tết ở nhà ngoại'];
+
+    $scope.text = "Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.";
+    $scope.updateText = function (text) {
+        $scope.text = text;
+    };
+
     generateOutput("Nhật ký SEA Games ngày 21/8: Ánh Viên thắng giòn giã ở vòng loại.");
     $scope.do = function () {
-        var text = $("#text").val();
+        var text = $scope.text;
         generateOutput(text);
     }
 });

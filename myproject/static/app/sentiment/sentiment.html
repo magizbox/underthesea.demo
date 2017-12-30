@@ -1,5 +1,5 @@
-<h2>Classification</h2>
-<p>Vietnamese Text Classification</p>
+<h2>Sentiment Analysis</h2>
+<p>Vietnamese Aspect Sentiment Analysis</p>
 <hr/>
 
 <div class="radio">
@@ -8,29 +8,23 @@
     <label>
       <input type="radio"
              name="domain"
-             value="general"
-             ng-model="domain"
-             checked>
-      general
-    </label>
-    <label>
-      <input type="radio"
-             name="domain"
-             ng-model="domain"
-             value="bank">
+             id="optionsDomain"
+             value="option1" checked disabled>
       bank
     </label>
   </p>
 </div>
+
 <p><b>Text</b></p>
 <div class="row">
   <div class="col-lg-8 col-sm-12 text-demo">
     <div class="form-group">
-      <textarea class="form-control" rows="8" id="text"
-                ng-model="text"></textarea>
+      <textarea class="form-control" rows="8"
+                id="text" ng-model="text"></textarea>
     </div>
+    <br/>
     <p class="text-center">
-      <span class="btn btn-success" ng-click="do()">Classify</span>
+      <span class="btn btn-success" ng-click="do()">Detect Sentiment</span>
     </p>
   </div>
   <div class="col-lg-4 col-sm-12 list-text-demo">
@@ -51,5 +45,10 @@
 </div>
 <b>Output</b><br/>
 <div id="output">
-  <span class="label label-info" ng-model="tag">{{ tag }}</span>
+  <span ng-class="{
+    'label': true,
+    'label-success': tag.polarity == 'POSITIVE',
+    'label-danger': tag.polarity == 'NEGATIVE'}">
+    {{ tag.label }}
+  </span>
 </div>
