@@ -5,8 +5,13 @@
 <div class="row">
   <div class="col-lg-8 col-sm-12 text-demo">
     <div class="form-group">
-      <textarea class="form-control" rows="3" id="text" ng-model="text"></textarea>
+      <textarea class="form-control" rows="10" id="text"
+                ng-model="text"></textarea>
     </div>
+    <p class="text-center">
+      <span class="btn btn-success"
+            ng-click="do()">Named Entity Recognition</span>
+    </p>
   </div>
   <div class="col-lg-4 col-sm-12 list-text-demo">
     <div class="panel panel-default">
@@ -24,9 +29,6 @@
     </div>
   </div>
 </div>
-<p class="text-center">
-  <span class="btn btn-success" ng-click="do()">Named Entity Recognition</span>
-</p>
 <b>NER</b><br/>
 <div id="ner_wrapper">
   <div id="ner"></div>
