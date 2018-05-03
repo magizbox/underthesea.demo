@@ -3,21 +3,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state({
             url: '/',
-            name: 'word_sent',
+            name: 'syntax',
             controller: 'WordSentCtrl',
-            templateUrl: "./static/app/word_sent/word_sent.html"
+            templateUrl: "./static/app/syntax/syntax.html"
         })
         .state({
-            url: '/pos_tag',
-            name: 'pos_tag',
-            controller: 'POSTagCtrl',
-            templateUrl: "./static/app/pos_tag/pos_tag.html"
-        })
-        .state({
-            url: '/chunking',
-            name: 'chunking',
-            controller: 'ChunkingCtrl',
-            templateUrl: "./static/app/chunking/chunking.html"
+            url: '/ner',
+            name: 'ner',
+            controller: 'NERTagCtrl',
+            templateUrl: "./static/app/named_entity_recognition/ner.html"
         })
         .state({
             url: '/dictionary',
@@ -30,5 +24,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             name: 'classification',
             controller: 'ClassificationCtrl',
             templateUrl: "./static/app/classification/classification.html"
+        })
+        .state({
+            url: '/sentiment',
+            name: 'sentiment',
+            controller: 'SentimentCtrl',
+            templateUrl: "./static/app/sentiment/sentiment.html"
         });
 });

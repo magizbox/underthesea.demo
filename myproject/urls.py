@@ -24,7 +24,9 @@ urlpatterns = [
     url(r'^word_sent', views.word_sent),
     url(r'^pos_tag', views.pos_tag),
     url(r'^chunking', views.chunking),
+    url(r'^ner', views.ner),
     url(r'^classification', views.classification),
+    url(r'^sentiment', views.sentiment),
     url(r'^dictionary', views.dictionary),
     url(r'^admin/', admin.site.urls),
 ]
