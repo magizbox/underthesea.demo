@@ -1,5 +1,14 @@
-# underthesea live demo
+# Underthesea service
 
-Aug 2017
+Version: 1.1.7
 
-* add word_segmentation demo
+Run service
+
+```
+conda create -n python=3.5 service
+source activate service
+pip install -r requirements.txt
+underthesea data
+```
+
+Last Update: 05/2018

@@ -67,7 +67,8 @@ def classification(request):
         domain = data["domain"] if data["domain"] is not "general" else None
         tags = uts.classify(text, domain=domain)
         result["output"] = tags
-    except:
+    except Exception as e:
+        print(e)
         result = {"error": "Bad request!"}
     return JsonResponse(result)
 
